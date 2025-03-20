@@ -1,5 +1,5 @@
 const url = "https://api.freeapi.app/api/v1/public/youtube/videos";
-
+let videos = [];
 async function getVideosDetail() {
     const options = { method: 'GET', headers: { accept: 'application/json' } };
 
@@ -40,14 +40,24 @@ async function renderVideos(videos) {
 
         container.appendChild(videoCard);
     });
+
+    document.getElementById("search").addEventListener("input", function () {
+            const searchTerm = this.value.toLowerCase();
+            const filteredVideos = videos.filter(video => 
+                video.title.toLowerCase().includes(searchTerm) || 
+                video.channel.toLowerCase().includes(searchTerm)
+            );
+            renderVideos(filteredVideos);
+        });
+
 }
 
 // Fetch and display videos
 async function loadVideos() {
-    const videos = await getVideosDetail();
+    videos = await getVideosDetail();
     renderVideos(videos);
 }
 
 // Call function to load videos
 loadVideos();
-
+console.log(videos);
