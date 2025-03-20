@@ -41,14 +41,6 @@ async function renderVideos(videos) {
         container.appendChild(videoCard);
     });
 
-    document.getElementById("search").addEventListener("input", function () {
-            const searchTerm = this.value.toLowerCase();
-            const filteredVideos = videos.filter(video => 
-                video.title.toLowerCase().includes(searchTerm) || 
-                video.channel.toLowerCase().includes(searchTerm)
-            );
-            renderVideos(filteredVideos);
-        });
 
 }
 
@@ -58,6 +50,27 @@ async function loadVideos() {
     renderVideos(videos);
 }
 
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", search)
+
+function search(){
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    if (!searchTerm) {
+        renderVideos(videos); 
+            return
+    }
+
+    const filteredVideos = videos.filter(video => 
+        video.title.toLowerCase().includes(searchTerm) || 
+        video.channel.toLowerCase().includes(searchTerm)
+    );
+
+    renderVideos(filteredVideos);
+}
+
+
+
+
 // Call function to load videos
 loadVideos();
-console.log(videos);
