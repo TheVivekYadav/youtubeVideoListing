@@ -15,14 +15,21 @@ This project fetches YouTube videos using the [FreeAPI YouTube API](https://api.
 - JavaScript
 - Fetch API
 
+## Screenshots 📸
+![pc Version](./img/ss1.png)
+![Mobile Version](./img/ss2.png)
+
+## Deployment 🌐
+[Click here to use the Youtube Video Listing App](https://youtube-video-listing-sigma.vercel.app/)
+
 ## Installation & Usage
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/TheVivekYadav/youtubeVideoListing.git
    ```
 2. Navigate to the project folder:
    ```sh
-   cd your-repository
+   cd youtubeVideoListing
    ```
 3. Open `index.html` in a web browser to view the application.
 
